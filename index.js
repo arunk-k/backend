@@ -3,6 +3,7 @@ require('dotenv').config()
 const PORT = process.env.PORT || 3000
 
 const authRoutes = require('./routes/authRoutes')
+const bookRoutes = require('./routes/bookRoutes')
 
 const connectDb = require('./connect/dbConnect')
 
@@ -17,6 +18,7 @@ server.use(cors())
 server.use(express.json())
 
 server.use("/api/auth", authRoutes)
+server.use("/api/books", bookRoutes)
 
 const startServer = async () => {
     await connectDb()
